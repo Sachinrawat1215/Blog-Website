@@ -9,22 +9,22 @@ const Left = () => {
                     <Link to="/create">Create Blog</Link>
                 </button>
                 <button>
-                    <Link to="/Home">All Categories</Link>
+                    <Link to="/">All Categories</Link>
                 </button>
                 <button>
-                    <Link to="/">Music</Link>
+                    <Link to="/?category=Music">Music</Link>
                 </button>
                 <button>
-                    <Link to="/">Movies</Link>
+                    <Link to="/?category=Movie">Movies</Link>
                 </button>
                 <button>
-                    <Link to="/">Sports</Link>
+                    <Link to="/?category=Sport">Sports</Link>
                 </button>
                 <button>
-                    <Link to="/">Tech</Link>
+                    <Link to="/?category=Tech">Tech</Link>
                 </button>
                 <button>
-                    <Link to="/">Fashion</Link>
+                    <Link to="/?category=Fashion">Fashion</Link>
                 </button>
             </div>
         </div>

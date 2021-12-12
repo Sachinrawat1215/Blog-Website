@@ -10,9 +10,11 @@ const CreatePost = async (post) => {
     }
 };
 
-const getAllPosts = async () => {
+const getAllPosts = async (params) => {
     try {
-        let response = await axios.get(`${URL}/posts`);
+        console.log(params)
+        // let response = await axios.get(`${URL}/posts${params}`);
+        let response = await axios.get(`${URL}/posts${params}`);
         return response.data;
     } catch (error) {
         console.log(`error while calling posts and the error is ${error}`);

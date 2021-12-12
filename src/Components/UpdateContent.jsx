@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import {getPost, updatePost } from '../Service/Api';
 
 const initialState = {
@@ -15,7 +15,7 @@ const UpdateContent = () => {
     const [post, setpost] = useState(initialState);
     const { id } = useParams();
     const url = "https://bit.ly/3CAvVx8";
-    const navigate = useNavigate();
+    const history = useHistory();
     
     useEffect(() => {
         const fetchData = async () => {
@@ -32,7 +32,7 @@ const UpdateContent = () => {
 
     const updateBlog = async () => {
         await updatePost({ id }.id, post);
-        navigate('/');
+        history.push('/');
     }
 
     return (

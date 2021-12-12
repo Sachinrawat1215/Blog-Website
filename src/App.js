@@ -1,22 +1,30 @@
 import React from 'react';
-import './App.scss'
+import './CSS/App.scss'
 import Home from './Pages/Home';
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import CreatePost from './Pages/CreatePost';
 import Post from './Pages/Post';
 import Update from './Pages/Update';
 
 const App = () => {
-  return (
-    <div>
-      <Routes>
-        <Route path='/create' element={<CreatePost />} />
-        <Route path='/post/:id' element={<Post />} />
-        <Route path='/update/:id' element={<Update />} />
-        <Route path='/' element={<Home />} />
-      </Routes>
-    </div>
-  )
+   return (
+      <div>
+         <Switch>
+            <Route exact path='/create'>
+               <CreatePost />
+            </Route>
+            <Route exact path='/post/:id'>
+               <Post />
+            </Route>
+            <Route exact path='/update/:id'>
+               <Update />
+            </Route>
+            <Route exact path='/'>
+               <Home />
+            </Route>
+         </Switch>
+      </div>
+   )
 }
 
 export default App;

@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useHistory } from 'react-router';
 import CreatePost from '../Service/Api';
 
 const initialState = {
     title: "",
     description: "",
     picture: "",
-    username: "Sachin Rawat",
-    categories: "All",
+    username: "helloworld",
+    categories: "Music",
     createDate: new Date()
 }
 
 const Title = () => {
     const [Post, setPost] = useState(initialState);
-    const navigate = useNavigate();
+    const history = useHistory();
 
     const handleChange = (e) => {
         setPost({ ...Post, [e.target.name]: e.target.value });
@@ -21,7 +21,7 @@ const Title = () => {
 
     const savePost = async () => {
         await CreatePost(Post);
-        navigate("/");
+        history.push("/");
     }
 
 

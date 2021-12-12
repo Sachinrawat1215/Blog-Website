@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { getPost, deletePost } from '../Service/Api';
 
 const PostContent = () => {
     const [post, setpost] = useState({});
     const { id } = useParams();
     const url = post.url || "https://bit.ly/3CAvVx8";
-    const navigate = useNavigate();
+    const history = useHistory();
 
     useEffect(() => {
         const fetchData = async () => {
-            let data = await getPost({ id }.id);
+            let data = await getPost({id}.id);
             console.log(data);
             setpost(data);
         };
@@ -19,7 +19,7 @@ const PostContent = () => {
 
     const deleteBlog = async () => {
         await deletePost({id}.id);
-        navigate("/");
+        history.push("/");
     }
 
     return (
@@ -31,14 +31,15 @@ const PostContent = () => {
             </div>
             <div className="post-container">
                 <div className="edit-delete">
-                    <Link to={`/update/${post._id}`}><i className="fas fa-edit"></i></Link>
-                    {/* <Link to={`/delete/${post._id}`} > */}
-                        <i onClick={deleteBlog} className="fas fa-trash"></i>
-                        {/* </Link> */}
+                    <Link to={`/update/${post._id}`}>
+                        <i className="fas fa-edit"></i>
+                    </Link>
+                    <i onClick={deleteBlog} className="fas fa-trash"></i>
                 </div>
                 <h1>{post.title}</h1>
                 <div className="author-date">
-                    <p>Author: {post.username}</p>
+                    {/* <p><Link to={`/?username=${post.username}`}>Author: {post.username}</Link></p> */}
+                    <p><Link to={`/?username=${post.username}`}>Author: {post.username}</Link></p>
                     <p>Date: {new Date(post.createDate).toDateString()}</p>
                 </div>
                 <div className="post-content">

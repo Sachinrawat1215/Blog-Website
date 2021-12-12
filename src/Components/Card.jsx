@@ -8,7 +8,7 @@ const Card = ({element}) => {
             <div className="card-box">
                 <Link to={`/post/${element._id}`} >
                     <img src={url} alt="logo" />
-                    <p id="small">Tech</p>
+                    <p id="small">{element.categories}</p>
                     <p>{element.title}</p>
                     <p id="small">Author: Sachin Rawat</p>
                     <p id="paragraph">{element.description}</p>
